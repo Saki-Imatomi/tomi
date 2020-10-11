@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+<br>
+
+<div class="inu">
+  <h2>記事投稿</h2>
+  <%= form_for @post do |f| %>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, :size => 30 %>
+      </div>
+
+      <div class="field">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      </div>
+
+      <div class="area">
+        <%= f.label :body%>
+        <%= f.text_area :body, :size => "200×10000" %>
+      </div>
+      
+      <%= f.submit "投稿する" %>
+  <% end %>
+
+    <%= link_to "記事投稿一覧に戻る", posts_path %>
+  
+<div>
+
+
+
+
+
+
+  

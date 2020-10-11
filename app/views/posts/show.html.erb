@@ -1,0 +1,74 @@
+<br>
+<br>
+
+
+<p>
+  
+  <%= image_tag(@post.image_url) if @post.image.present? %>
+</p>
+  
+<div class="inu">
+  <div class="post">
+    <p><%= @post.title %></p>
+    <p><%= @post.body %></p>
+    <p><%= @post.created_at.to_s(:datetime_jp) %></p>
+</div>
+
+<br>
+
+<div class="cat">
+        <h3>いいね件数: <%= @post.loves.count %></h3>
+        <% if  user_signed_in? && current_user.already_loved?(@post) %>
+          <%=link_to post_love_path(@post), method: :delete do%>
+          <i class="fas fa-heart"></i>
+          <%end%>
+        <% else %>
+          <%=link_to post_loves_path(@post), method: :post do%>
+            <i class="far fa-heart"></i>
+        <%end%>
+        <% end %>
+
+  <br>       
+  <br>
+        <h3>いいねしたユーザー</h3>
+        <div class="hito">
+        <% @post.loved_users.each do |user| %>
+        <%= user.email %>
+        </div>
+      <% end %>
+
+  <br>
+  <br>          
+   
+      <div class="dog-wrapper">
+        <h3>コメント一覧</h3>
+        <% @dogs.each do |c| %>
+          <div class="hito">
+            <%= c.user.email unless c.user.blank? %>
+            <br>
+            <%= c.content %>
+          </div>
+            <br>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= form_with(model: [@post, @dog], local: true) do |f| %>
+            <%= f.text_area :content, :size=>"40x5" %>
+            <br>
+
+
+            <%= button_tag type: "submit" do %>
+              <i class="far fa-comments"></i> コメントする
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <br>
+
+
+  <%= link_to "記事投稿一覧に戻る", posts_path %>
+  
+  <br>
+
+  <%= link_to "編集する", edit_post_path(@post.id) %>
+</div>

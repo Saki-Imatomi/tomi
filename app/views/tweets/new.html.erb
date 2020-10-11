@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="ab">
+
+  <%= link_to "ログイン", tweets_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+
+
+
+
+  <h1 style="text-align:center"1>幸せを感じる瞬間</h1>
+  <p style="text-align:center">あなたが幸せを感じる瞬間を共有しましょう♡</p>
+  <p style="text-align:center">みんなでこのページをみんなの幸せでいっぱいにしてくださいね！</p>
+
+
+  <%= form_for @tweet do |f| %>
+      
+      <div class="field">
+        <%= f.label :body%>
+        <%= f.text_field :body, :size => 400 %>
+      </div>
+      <%= f.submit "幸せを共有する" %>
+      
+  <% end %>
+
+    <%= link_to "Tweet一覧に戻る", tweets_path %>
+
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    
+</div>

@@ -1,0 +1,97 @@
+<div class="a">
+ <img src="/assets/kakou1.jpg" alt="ひまわりの写真" class="himawari">
+</div>
+
+<div class="first-block">
+
+<p style="text-align:center">あなたは何のために生きていますか？</p>
+<p style="text-align:center">私は<b>「人は幸せになるために生きている」</b>と思ってます。</p>
+<p style="text-align:center"><b>これからの人生</b>を幸せにするために、</p>
+<p style="text-align:center">コンテンツを設けました。</p>
+<p style="text-align:center"><b>幸せになるきっかけ</b>を見つけてみてください♡</p>
+</div>
+
+
+
+<div class="one">
+
+  <% if user_signed_in? %>
+      <% if current_user.admin == true %>
+        <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get }%>
+      <% end %>
+  <% end %>
+
+  
+       
+ 
+
+
+
+
+
+
+    <h2 style="text-align:center">記事ランキングBEST3</h2>
+
+</div>
+
+
+   <div class="posts-container">
+      <% @all_ranks.each do |t| %>
+          
+        <div class="post">
+          <%= t.title %>
+            <i class="fas fa-heart"></i><%=t.loves.count%>
+            <%= t.created_at.to_s(:datetime_jp) %>
+          <%= link_to "記事を読む", post_path(t.id) %>
+          <% if user_signed_in? && current_user.id == t.user_id %>
+          
+          <%= link_to "編集する", edit_post_path(t.id) %>
+          <%= link_to "削除する", post_path(t.id), method: :delete %>
+          <% end %>
+          </div>
+      <% end %>
+    </div>
+
+
+
+
+<br>
+<br>
+
+<div class="two">
+    <h2 style="text-align:center">全記事一覧</h2>
+</div>
+
+    <div class="posts-container">
+    <% @posts.each do |t| %>   
+      <div class="post">
+        <%= t.title %>
+
+      <% if t.loves.count != 0 %>
+          <i class="fas fa-heart"></i><%=t.loves.count%>
+      <% end %>
+      
+        <%= t.created_at.to_s(:datetime_jp) %>
+        <%= link_to "記事を読む", post_path(t.id) %>
+        <% if user_signed_in? && current_user.id == t.user_id %>
+        
+        <%= link_to "編集する", edit_post_path(t.id) %>
+        <%= link_to "削除する", post_path(t.id), method: :delete %>
+        <% end %>
+        </div>
+    <% end %>
+    </div>
+
+    <br>
+    <br>
+
+ <footer>
+ <small>2020.09.06 Imatomi Saki</small>
+</footer>
+
+
+
+
+
+
+

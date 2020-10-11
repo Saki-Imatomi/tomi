@@ -1,0 +1,44 @@
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+<div class="ab">
+
+  <div class="b">
+    <br>
+    <h2 style="text-align:center">幸せを感じる瞬間</h2>
+    <p style="text-align:center">みんなの幸せを感じる瞬間を教えてもらいました。</p>
+    <p style="text-align:center">ぜひあなたも参考にしてみてください。</p>
+    <br>
+  </div>
+
+  <div class="tweets-container">
+    <% @tweets.each do |t| %>
+      <div class="tweet">
+      　<%= t.user.email %>
+        <%= t.user.name %>
+        <%= t.body %>
+
+        <% if current_user.already_liked?(t) %>
+          <i class="fas fa-heart"></i><%=t.likes.count%>
+        <% end %>
+
+
+      <%= t.created_at.to_s(:datetime_jp) %>
+      <%= link_to "詳細", tweet_path(t.id) %>
+      <%= link_to "編集", edit_tweet_path(t.id) %>
+      <%= link_to "削除", tweet_path(t.id), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+
+  <br>
+  <%= button_to "幸せを共有する",  {controller: 'tweets', action: 'new'}, {method: :get }%>
+
+</div>
+
+
+
+
