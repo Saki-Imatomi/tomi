@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
     def index
         @posts = Post.all
-        @all_ranks = Post.all.limit(3)
+        @all_ranks = Post.joins(:loves).group(:post_id).order('count(post_id) desc')
     end
 
 
