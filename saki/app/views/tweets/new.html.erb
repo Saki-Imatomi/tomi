@@ -1,0 +1,26 @@
+<%= link_to "ログイン", tweets_path %>
+<%= link_to "新規登録", new_user_registration_path %>
+
+
+
+
+<h1>実践してよかった考え方や行動</h1>
+<p style="text-align:center">あなたの実践してよかった行動や心がけるべき考え方を教えてください！</p>
+<p>共有されたノウハウをもとに、みんなで優秀な人を目指しましょう☆ミ</p>
+
+<%= form_for @tweet do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, :size => 140 %>
+    </div>
+    <div class="field">
+      <%= f.label :body%>
+      <%= f.text_field :body, :size => 200 %>
+    </div>
+    <%= f.submit "Tweetする" %>
+    
+<% end %>
+
+  <%= link_to "Tweet一覧に戻る", tweets_path %>
+
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

@@ -1,5 +1,7 @@
+
+
 <div class="a">
- <img src="/assets/kakou1.jpg" alt="ひまわりの写真" class="himawari">
+<img src="/assets/kakou1.jpg" alt="ひまわりの写真" class="himawari">
 </div>
 
 <div class="first-block">
@@ -15,44 +17,44 @@
 
 <div class="one">
 
-  <% if user_signed_in? %>
-      <% if current_user.admin == true %>
-        <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get }%>
-      <% end %>
-  <% end %>
+ <% if user_signed_in? %>
+     <% if current_user.admin == true %>
+       <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get }%>
+     <% end %>
+ <% end %>
 
-  
-       
  
+      
 
 
 
 
 
 
-    <h2 style="text-align:center">記事ランキングBEST3</h2>
+
+   <h2 style="text-align:center">記事ランキングBEST3</h2>
 
 </div>
 
 
-   <div class="posts-container">
-      <% if @all_ranks %>
-        <% @all_ranks.each do |t| %>
-            
-          <div class="post">
-            <%= t.title %>
-              <i class="fas fa-heart"></i><%=t.loves.count%>
-              <%= t.created_at.to_s(:datetime_jp) %>
-            <%= link_to "記事を読む", post_path(t.id) %>
-            <% if user_signed_in? && current_user.id == t.user_id %>
-            
-            <%= link_to "編集する", edit_post_path(t.id) %>
-            <%= link_to "削除する", post_path(t.id), method: :delete %>
-            <% end %>
-            </div>
-        <% end %>
-      <% end %>
-    </div>
+  <div class="posts-container">
+     <% if @all_ranks %>
+       <% @all_ranks.each do |t| %>
+           
+         <div class="post">
+           <%= t.title %>
+             <i class="fas fa-heart"></i><%=t.loves.count%>
+             <%= t.created_at.to_s(:datetime_jp) %>
+           <%= link_to "記事を読む", post_path(t.id) %>
+           <% if user_signed_in? && current_user.id == t.user_id %>
+           
+           <%= link_to "編集する", edit_post_path(t.id) %>
+           <%= link_to "削除する", post_path(t.id), method: :delete %>
+           <% end %>
+           </div>
+       <% end %>
+     <% end %>
+   </div>
 
 
 
@@ -61,35 +63,36 @@
 <br>
 
 <div class="two">
-    <h2 style="text-align:center">全記事一覧</h2>
+   <h2 style="text-align:center">全記事一覧</h2>
 </div>
 
-    <div class="posts-container">
-    <% @posts.each do |t| %>   
-      <div class="post">
-        <%= t.title %>
+   <div class="posts-container">
+   <% @posts.each do |t| %>   
+     <div class="post">
+       <%= t.title %>
 
-      <% if t.loves.count != 0 %>
-          <i class="fas fa-heart"></i><%=t.loves.count%>
-      <% end %>
-      
-        <%= t.created_at.to_s(:datetime_jp) %>
-        <%= link_to "記事を読む", post_path(t.id) %>
-        <% if user_signed_in? && current_user.id == t.user_id %>
-        
-        <%= link_to "編集する", edit_post_path(t.id) %>
-        <%= link_to "削除する", post_path(t.id), method: :delete %>
-        <% end %>
-        </div>
-    <% end %>
-    </div>
+     <% if t.loves.count != 0 %>
+         <i class="fas fa-heart"></i><%=t.loves.count%>
+     <% end %>
+     
+       <%= t.created_at.to_s(:datetime_jp) %>
+       <%= link_to "記事を読む", post_path(t.id) %>
+       <% if user_signed_in? && current_user.id == t.user_id %>
+       
+       <%= link_to "編集する", edit_post_path(t.id) %>
+       <%= link_to "削除する", post_path(t.id), method: :delete %>
+       <% end %>
+       </div>
+   <% end %>
+   </div>
 
-    <br>
-    <br>
+   <br>
+   <br>
 
- <footer>
- <small>2020.09.06 Imatomi Saki</small>
+<footer>
+<small>2020.09.06 Imatomi Saki</small>
 </footer>
+
 
 
 

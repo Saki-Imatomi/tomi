@@ -1,0 +1,45 @@
+
+ <img src="/assets/himama.jpg" alt="海">
+
+
+ <h2 style="text-align:center" >記事一覧</h1>
+
+
+ <% if user_signed_in? %>
+     <% if current_user.admin == true %>
+       <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get }%>
+     <% end %>
+ <% end %>
+
+ 
+ <div class="posts-container">
+   <% @posts.each do |t| %>
+     <div class="post">
+       <%= t.title %>
+
+     <% if current_user.already_loved?(t) %>
+        <i class="fas fa-heart"></i><%=t.loves.count%>
+     <% end %>
+     
+       <%= t.created_at.to_s(:datetime_jp) %>
+       <%= link_to "記事を読む", post_path(t.id) %>
+       <% if user_signed_in? && current_user.id == t.user_id %>
+      
+       <%= link_to "編集する", edit_post_path(t.id) %>
+       <%= link_to "削除する", post_path(t.id), method: :delete %>
+      <% end %>
+      </div>
+   <% end %>
+ </div>
+ 
+
+ <footer>
+ <small>2020.09.06 Imatomi Saki</small>
+</footer>
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<h1>自分の投稿ページ</h1>
+<h2>記事投稿</h2>
+
+<div class="post">
+  <p><%= @post.title %></p>
+  <p><%= @post.body %></p>
+  <p><%= @post.created_at %></p>
+
+  <h3>いいね件数: <%= @post.loves.count %></h3>
+  <% if current_user.already_loved?(@post) %>
+    <%=link_to post_love_path(@post), method: :delete do%>
+     <i class="fas fa-heart"></i>
+    <%end%>
+  <% else %>
+    <%=link_to post_loves_path(@post), method: :post do%>
+      <i class="far fa-heart"></i>
+   <%end%>
+  <% end %>
+
+  </div>
+
+  <h2>いいねしたユーザー</h2>
+  <% @post.loved_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+
+
+
+
+
+
+<%= link_to "記事投稿一覧に戻る", posts_path %>
+<%= link_to "編集する", edit_post_path(@post.id) %>

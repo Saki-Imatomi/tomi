@@ -1,0 +1,37 @@
+
+
+<br>
+
+<p><td align="center">みんなの実践してよかった考え方や行動をまとめてみました。</td></p>
+<p><td align="center">ぜひあなたも実践してみましょう！</td></p>
+
+<h2></h2>
+
+
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+      <%= t.title %>
+      <%= t.body %>
+
+      <% if current_user.already_liked?(t) %>
+         <i class="fas fa-heart"></i><%=t.likes.count%>
+      <% end %>
+
+
+    <%= t.created_at.to_s(:datetime_jp) %>
+    <%= link_to "詳細へ", tweet_path(t.id) %>
+    <%= link_to "編集する", edit_tweet_path(t.id) %>
+    <%= link_to "削除する", tweet_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+<%= button_to "新規投稿をする",  {controller: 'tweets', action: 'new'}, {method: :get }%>
+
+
+
+
+
+
