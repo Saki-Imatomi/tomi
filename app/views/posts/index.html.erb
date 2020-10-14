@@ -71,12 +71,10 @@
      <div class="post">
        <%= t.title %>
 
-       <!--
-       <% if t.loves.count != 0 %>
-        # <i class="fas fa-heart"></i><%=t.loves.count%>
-        -->
-     <% end %>
-    
+       
+
+
+       
 
        <%= t.created_at.to_s(:datetime_jp) %>
        <%= link_to "記事を読む", post_path(t.id) %>
