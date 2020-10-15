@@ -1,8 +1,5 @@
 class PostsController < ApplicationController
-  #before_action :authenticate_user!
-  
-  #before_action :authenticate_user!, if: proc { user_signed_in? && current_user.id == 5 }
- #before_action :authenticate_user!, if: proc { user_signed_in? &&current_user.admin == true }
+ 
 
 
     def index
@@ -48,8 +45,7 @@ class PostsController < ApplicationController
 
 
     def destroy
-      post = Post.find(params[:id])
-      post.destroy
+      Post.find(params[:id]).destroy
       redirect_to action: :index
     end
 
