@@ -46,10 +46,20 @@ class PostsController < ApplicationController
         end
     end
 
-    def destroy
-        Post.find(params[:id]).destroy
-        redirect_to action: :index
-    end
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  
 
 
     private
