@@ -51,7 +51,7 @@
            <%= link_to "編集する", edit_post_path(t.id) %>
            <%= link_to "削除する", post_path(t.id), method: :delete %>
            <% end %>
-          </div>
+           </div>
        <% end %>
      <% end %>
    </div>
@@ -71,11 +71,10 @@
      <div class="post">
        <%= t.title %>
 
-       
-
-
-       
-
+     <% if t.loves.count != 0 %>
+         <i class="fas fa-heart"></i><%=t.loves.count%>
+     <% end %>
+     
        <%= t.created_at.to_s(:datetime_jp) %>
        <%= link_to "記事を読む", post_path(t.id) %>
        <% if user_signed_in? && current_user.id == t.user_id %>

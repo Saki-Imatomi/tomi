@@ -17,34 +17,25 @@
 <br>
 
 <div class="cat">
+        <h3>いいね件数: <%= @post.loves.count %></h3>
+        <% if  user_signed_in? && current_user.already_loved?(@post) %>
+          <%=link_to post_love_path(@post), method: :delete do%>
+          <i class="fas fa-heart"></i>
+          <%end%>
+        <% else %>
+          <%=link_to post_loves_path(@post), method: :post do%>
+            <i class="far fa-heart"></i>
+        <%end%>
+        <% end %>
 
-
-
-
-<h3>いいね件数: <%= @post.loves.count %></h3>
-<% if  user_signed_in? && current_user.already_loved?(@post) %>
-  <%=link_to post_love_path(@post), method: :delete do%>
-  <i class="fas fa-heart"></i>
-<%end%>
-<% else %>
-  <%=link_to post_loves_path(@post), method: :post do%>
-    <i class="far fa-heart"></i>
-<%end%>
-<% end %>
-
-<br>       
-<br>
-<h3>いいねしたユーザー</h3>
-<div class="hito">
-<% @post.loved_users.each do |user| %>
-<%= user.email %>
-</div>
-<% end %>
-
-
-
-
-
+  <br>       
+  <br>
+        <h3>いいねしたユーザー</h3>
+        <div class="hito">
+        <% @post.loved_users.each do |user| %>
+        <%= user.email %>
+        </div>
+      <% end %>
 
   <br>
   <br>          
