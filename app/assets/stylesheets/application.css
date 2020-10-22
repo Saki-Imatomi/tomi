@@ -56,14 +56,14 @@ happy{
 
 
 header h1 {
- 
+ /* color:#7ee6ab;*/
   margin-left: 20px;
   letter-spacing: 0.5em;
- 
-  background: -webkit-linear-gradient(0deg, #fd9800, #faf600, #05fa43, #09b3f7);
+  /*  background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;*/
+  background: -webkit-linear-gradient(0deg, #ff9a02, #faf600, #05fa43, #09b3f7);
   background-clip: text;
   -webkit-background-clip: text;
-  /* text-fill-color: transparent;*/
+  text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   animation: example 4s linear infinite;
 }
@@ -79,7 +79,7 @@ header a {
   letter-spacing: 0.5em;
   color: #FF8C00;
   background: -webkit-linear-gradient(0deg, #09b3f7, #4b66fc, #8400ff);
-  
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
  
 }
