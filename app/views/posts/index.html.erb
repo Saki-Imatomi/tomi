@@ -19,21 +19,18 @@
 
 
 <div class="one">
-
  <% if user_signed_in? %>
      <% if current_user.admin == true %>
-       <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get } %>
+       <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get , class: "btn btn-outline-success" } %>
      <% end %>
  <% end %>
-
- 
  </div>
 
 
 
-<br>
+   <br>
    <h2 style="text-align:center">記事ランキングBEST3</h2>
-
+   <br>
 
 
 
@@ -66,7 +63,6 @@
 <div class="two">
    <h2 style="text-align:center">全記事一覧</h2>
 </div>
-
 
 <div class="container">
   <div class="card-columns">

@@ -12,7 +12,9 @@
 <div class="inu">
   <div class="post">
     <h2><%= @post.title %></h2>
+    <br>
     <%= image_tag(@post.image_url) if @post.image.present? %>
+    <br>
     <p><%= @post.body %></p>
     <p><%= @post.created_at.to_s(:datetime_jp) %></p>
 </div>
@@ -74,4 +76,5 @@
   <br>
 
   <%= link_to "編集する", edit_post_path(@post.id) , class:"text-success" %>
+  <br>
 </div>

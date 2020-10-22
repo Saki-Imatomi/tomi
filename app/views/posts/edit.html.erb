@@ -2,17 +2,21 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 
 <div class="inu">
 
     <%= form_for @post do |f| %>
         <%= f.label :title %>
         <%= f.text_field :title, :size => 140 %> 
+        <br>
         <%= f.label :image %>
         <%= f.file_field :image %>
+        <br>
         <%= f.label :body %>
         <%= f.text_area:body, :size => "200×10000" %> 
-        <%= f.submit "編集する" %>
+        <%= f.submit "編集する" , class: "btn btn-outline-success" %>
     <% end %>
 
 
