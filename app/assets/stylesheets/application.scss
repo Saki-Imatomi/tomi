@@ -1,0 +1,120 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+
+
+
+
+
+ 
+ * {
+  padding: 0;
+  margin: 0;
+}
+
+
+header {
+  position: fixed;
+  background-color:rgb(255, 255, 255);
+  height: 105px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  opacity:0.85;
+  z-index: 9999;
+}
+
+happy{
+  position: fixed;
+  background-color:white;
+  height: 105px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  opacity:0.8;
+}
+
+
+
+header h1 {
+ /* color:#7ee6ab;*/
+  margin-left: 20px;
+  letter-spacing: 0.5em;
+  /*  background: linear-gradient(to right, #f00 0%, #f80 14.28%, #dd0 28.56%, #0d0 42.85%, #0dd 57.14%, #00f 71.42%, #e0e 85.71%, #f00 100%) 0% center / 200% auto;*/
+  background: -webkit-linear-gradient(0deg, #ff9a02, #faf600, #05fa43, #09b3f7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: example 4s linear infinite;
+}
+
+
+/* @keyframes header h1{
+  to { background-position-x: 200%; }
+}*/
+
+header a {
+  /*color: #7ee6ab; */
+  text-decoration: none; 
+  letter-spacing: 0.5em;
+  color: #FF8C00;
+  background: -webkit-linear-gradient(0deg, #09b3f7, #4b66fc, #8400ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+}
+header li {
+  list-style: none;
+  margin-right: 40px;
+}
+
+
+
+body {
+  font-family: "游ゴシック";
+  font-weight: normal;
+}
+
+
+
+
+
+footer {
+position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 50px;
+background-color: white;
+font-size: 15px;
+color: #7ee6ab;
+}
