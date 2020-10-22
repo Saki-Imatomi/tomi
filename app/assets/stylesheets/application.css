@@ -63,7 +63,7 @@ header h1 {
   background: -webkit-linear-gradient(0deg, #ff9a02, #faf600, #05fa43, #09b3f7);
   background-clip: text;
   -webkit-background-clip: text;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent;*/
   -webkit-text-fill-color: transparent;
   animation: example 4s linear infinite;
 }
@@ -79,7 +79,7 @@ header a {
   letter-spacing: 0.5em;
   color: #FF8C00;
   background: -webkit-linear-gradient(0deg, #09b3f7, #4b66fc, #8400ff);
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text;*/
   -webkit-text-fill-color: transparent;
  
 }
