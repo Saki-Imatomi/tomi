@@ -1,8 +1,11 @@
 
 
+
+
 <div class="a">
-<img src="/assets/kakou1.jpg" alt="ひまわりの写真" class="himawari">
+<img src="/assets/kakou1.jpg" alt="ひまわ りの写真" class="himawari">
 </div>
+
 
 <div class="first-block">
 
@@ -19,37 +22,34 @@
 
  <% if user_signed_in? %>
      <% if current_user.admin == true %>
-       <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get }%>
+       <%= button_to "記事投稿",  {controller: 'posts', action: 'new'}, {method: :get } %>
      <% end %>
  <% end %>
 
  
-      
+ </div>
 
 
 
-
-
-
-
+<br>
    <h2 style="text-align:center">記事ランキングBEST3</h2>
 
-</div>
+
 
 
   <div class="posts-container">
      <% if @all_ranks %>
        <% @all_ranks.each do |t| %>
-           
+          
          <div class="post">
            <%= t.title %>
              <i class="fas fa-heart"></i><%=t.loves.count%>
              <%= t.created_at.to_s(:datetime_jp) %>
-           <%= link_to "記事を読む", post_path(t.id) %>
+           <%= link_to "記事を読む", post_path(t.id), class:"text-success" %>
            <% if user_signed_in? && current_user.id == t.user_id %>
            
-           <%= link_to "編集する", edit_post_path(t.id) %>
-           <%= link_to "削除する", post_path(t.id), method: :delete %>
+           <%= link_to "編集する", edit_post_path(t.id) , class:"text-success"%>
+           <%= link_to "削除する", post_path(t.id), method: :delete , class:"text-success"%>
            <% end %>
            </div>
        <% end %>
@@ -62,32 +62,50 @@
 <br>
 <br>
 
+
 <div class="two">
    <h2 style="text-align:center">全記事一覧</h2>
 </div>
 
-   <div class="posts-container">
-   <% @posts.each do |t| %>   
-     <div class="post">
-       <%= t.title %>
 
-     <% if t.loves.count != 0 %>
-         <i class="fas fa-heart"></i><%=t.loves.count%>
-     <% end %>
-     
-       <%= t.created_at.to_s(:datetime_jp) %>
-       <%= link_to "記事を読む", post_path(t.id) %>
-       <% if user_signed_in? && current_user.id == t.user_id %>
-       
-       <%= link_to "編集する", edit_post_path(t.id) %>
-       <%= link_to "削除する", post_path(t.id), method: :delete %>
-       <% end %>
-       </div>
-   <% end %>
-   </div>
+<div class="container">
+  <div class="card-columns">
+   
+      <% @posts.each do |t| %> 
+        <div class="card  text-center">
+          <%= image_tag t.image_url, :size => "120x180", :class => "card-img-top" %>
+            
+            <div class="card-body">
+            <h5 class="card-title"><%= t.title %></h5>
+            
+            <% if t.loves.count != 0 %>
+                <i class="fas fa-heart"></i><%=t.loves.count%>
+            <% end %>
+            <br>
+            <%= t.created_at.to_s(:datetime_jp) %>
+            <br>
+            <%= link_to "記事を読む", post_path(t.id), class:"text-success" %>
+            <% if user_signed_in? && current_user.id == t.user_id %>
+              <%= link_to "編集する", edit_post_path(t.id), class:"text-success" %>
+              <%= link_to "削除する", post_path(t.id), method: :delete , class:"text-success"%>
+            <% end %>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
 
    <br>
    <br>
+
+
+
+
 
 <footer>
 <small>2020.09.06 Imatomi Saki</small>
