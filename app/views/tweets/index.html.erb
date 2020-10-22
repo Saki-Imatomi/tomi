@@ -1,9 +1,9 @@
-
+<head></head>
   <br>
   <br>
   <br>
   <br>
-
+<body>
 <div class="ab">
 
   <div class="b">
@@ -17,7 +17,7 @@
   <div class="tweets-container">
     <% @tweets.each do |t| %>
       <div class="tweet">
-      　<%= t.user.email %>
+      
         <%= t.user.name %>
         <%= t.body %>
 
@@ -27,18 +27,18 @@
 
 
       <%= t.created_at.to_s(:datetime_jp) %>
-      <%= link_to "詳細", tweet_path(t.id) %>
-      <%= link_to "編集", edit_tweet_path(t.id) %>
-      <%= link_to "削除", tweet_path(t.id), method: :delete %>
+      <%= link_to "詳細", tweet_path(t.id) , class:"text-success"%>
+      <%= link_to "編集", edit_tweet_path(t.id), class:"text-success" %>
+      <%= link_to "削除", tweet_path(t.id), method: :delete , class:"text-success"%>
       </div>
     <% end %>
   </div>
 
   <br>
-  <%= button_to "幸せを共有する",  {controller: 'tweets', action: 'new'}, {method: :get }%>
+  <%= button_to("幸せを共有する", {controller: 'tweets', action: 'new'}, {method: :get, class: "btn btn-outline-success" } ) %>
 
 </div>
 
-
+</body>
 
 

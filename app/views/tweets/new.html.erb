@@ -7,8 +7,8 @@
 
 <div class="ab">
 
-  <%= link_to "ログイン", tweets_path %>
-  <%= link_to "新規登録", new_user_registration_path %>
+  <%= link_to "ログイン", tweets_path , class:"text-success"%>
+  <%= link_to "新規登録", new_user_registration_path , class:"text-success"%>
 
 
 
@@ -24,12 +24,14 @@
         <%= f.label :body%>
         <%= f.text_field :body, :size => 400 %>
       </div>
-      <%= f.submit "幸せを共有する" %>
+      <br>
+      <%= f.submit "幸せを共有する" ,class:"btn btn-outline-success" %>
       
   <% end %>
 
-    <%= link_to "Tweet一覧に戻る", tweets_path %>
-
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<br>
+    <%= link_to "Tweet一覧に戻る", tweets_path , class:"text-success"%>
+    <br>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:"text-success"%>
     
 </div>
