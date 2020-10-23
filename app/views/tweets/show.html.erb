@@ -1,5 +1,8 @@
 <br>
 <br>
+<br>
+<br>
+<br>
 
 <div class="ab">
 
@@ -41,8 +44,6 @@
   <% @comments.each do |c| %>
     <div>
       <%= c.user.email unless c.user.blank? %>
-      <br>
-      <%= c.user.name %>
       <br>
       <%= c.comment %>
     </div>
