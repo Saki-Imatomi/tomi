@@ -28,8 +28,7 @@
 
       <%= t.created_at.to_s(:datetime_jp) %>
       <%= link_to "詳細", tweet_path(t.id) , class:"text-success"%>
-      
-     aaaaaaa
+     
       <%= link_to "編集", edit_tweet_path(t.id), class:"text-success" %>
       <%= link_to "削除", tweet_path(t.id), method: :delete , class:"text-success"%>
       </div>
