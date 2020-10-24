@@ -81,10 +81,10 @@
             <%= t.created_at.to_s(:datetime_jp) %>
             <br>
             <%= link_to "記事を読む", post_path(t.id), class:"text-success" %>
-            <% if user_signed_in? && current_user.id == t.user_id %>
+           
               <%= link_to "編集する", edit_post_path(t.id), class:"text-success" %>
               <%= link_to "削除する", post_path(t.id), method: :delete , class:"text-success"%>
-            <% end %>
+            
             </div>
         </div>
       <% end %>

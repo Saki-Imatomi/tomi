@@ -5,11 +5,13 @@ class TweetsController < ApplicationController
 
     def new
         @tweet = Tweet.new
+        @tweet = current_user.tweets.build
     end
 
 
     def create
         @tweet = Tweet.new(tweet_params)
+        @t =tweet current_user.tweets.build(tweet_params)
         @tweet.user_id = current_user.id
         if @tweet.save
           redirect_to :action => "index"
